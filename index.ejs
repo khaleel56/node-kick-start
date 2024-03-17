@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crud Operation</title>
+        <style>
+        form {
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+
+        }
+        label {
+        width: 100px;
+        margin-bottom: 5px;
+    }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 600px; 
+            margin: 0 auto; 
+            text-align: left; 
+            }
+        </style>
+
+    </head>
+    <body class="container">
+        <div class="form-container">
+        <h1>Generate Crud Operation</h1>
+        <form action ="/upload" method="POST" enctype="multipart/form-data">
+            <div>
+                <label>Provide Project Name:</label>
+                <input type="text" name="projectName">
+            </div>
+
+            <br>
+            <div>
+                <label>Select Database:</label>
+                <select name="database">
+                    <option value="" disabled selected>--Select--</option>
+                    <option value="MYSQL">MYSQL</option>
+                    <option value="MongoDB">MongoDB</option>
+                </select>
+            </div>
+
+            <br>
+            <div>
+                <label for="file">Choose a File:</label>
+                <input type="file" name="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">    
+            </div>
+            <br>
+            <button type="submit">Upload</button>
+            <% if (message) { %>
+                <script>
+                    alert('<%= message %>');
+                </script>
+                <% } %>
+        </form>
+        </div>
+    </body>
+    </script>
+</html>
